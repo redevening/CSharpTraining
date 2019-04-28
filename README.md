@@ -1,7 +1,9 @@
+# C# learnt with Excercise Projects
+
 This repository contains small exercises that can serve
 as an introduction to C#
 
-# 01 - BlackJack
+### 01 - BlackJack
 The first exercise is about creating a small command
 line based blackjack game. The game has simplified
 rules.
