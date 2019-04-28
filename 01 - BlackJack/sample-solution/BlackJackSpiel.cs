@@ -108,7 +108,7 @@ public class BlackJackSpiel
 		else
 		{
 			Console.WriteLine("Das Casino hat mit " + DealerPunkte + " Punkten gewonnen!");
-			Console.WriteLine("Du hast nur nur " + SpielerPunkte + " Punkte.");
+			Console.WriteLine("Du hast nur " + SpielerPunkte + " Punkte.");
 		}
 	}
 	

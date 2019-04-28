@@ -10,12 +10,10 @@ public class KartenDeck
 	public KartenDeck()
 	{
 		int counter = 0;
-		for(int i = 0; i < 4; i++)
+		foreach (KartenFarbe farbe in (KartenFarbe[]) Enum.GetValues(typeof(KartenFarbe)))
 		{
-			KartenFarbe farbe = (KartenFarbe) i;
-			for(int j = 2; j < 15; j++)
+			foreach(KartenWert wert in (KartenWert[]) Enum.GetValues(typeof(KartenWert)))
 			{
-				KartenWert wert = (KartenWert) j;
 				Deck[counter] = new Karte(farbe, wert);
 				counter++;
 			}
