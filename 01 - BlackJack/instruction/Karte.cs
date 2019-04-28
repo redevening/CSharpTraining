@@ -9,23 +9,23 @@ public class Karte
 		this.wert = wert;
 	}
 	
+	///
+	/// Gibt einen String zurück, der KartenFarbe,
+	/// Wert und Punktzahl beinhaltet
+	///
 	public override string ToString()
 	{
-		return farbe + " " + wert + " (" + this.Punkte() + ")";
+		// TODO implement
+		return "";
 	}
 	
+	///
+	/// Diese Methode returnt den wert einer Karte
+	///
 	public int Punkte()
 	{
-		switch(this.wert)
-		{
-			case KartenWert.Bube:
-			case KartenWert.Dame:
-			case KartenWert.König:
-			case KartenWert.Ass:
-				return 10;
-			default:
-				return (int) this.wert;
-		}
+		// TODO implement
+		return 0;
 	}
 		
 }

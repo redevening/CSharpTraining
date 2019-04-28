@@ -1,123 +1,66 @@
 using System;
 
+///
+/// Diese Klasse beinhaltet die Spiel Logik
+///
 public class BlackJackSpiel
 {
 	KartenDeck KartenDeck;
-	Karte[] SpielerKarten = new Karte[10];
-	int SpielerPunkte = 0;
-	Karte[] DealerKarten = new Karte[10];
-	int DealerPunkte = 0;
+	static short maximalKartenProSpieler = 6;
+	Karte[] SpielerKarten = new Karte[maximalKartenProSpieler];
+	Karte[] DealerKarten = new Karte[maximalKartenProSpieler];
 
 	public BlackJackSpiel()
 	{
 		this.KartenDeck = new KartenDeck();
 	}
 	
+	///
+	/// In dieser Methode befindet sich die Haupt Logik
+	///
 	public void spiele()
 	{
-		Console.WriteLine("Ziehe eine Karte:");
-		Console.ReadLine();
-		SpielerKarten[0] = this.KartenDeck.zieheKarte();
-		SpielerPunkte += SpielerKarten[0].Punkte();
-		Console.WriteLine("Du hast " + SpielerKarten[0] + " gezogen");
-		
-		Console.WriteLine("Das Casino zieht eine Karte:");
-		Console.ReadLine();
-		DealerKarten[0] = this.KartenDeck.zieheKarte();
-		DealerPunkte += DealerKarten[0].Punkte();
-		Console.WriteLine("Das Casino hat " + DealerKarten[0] + " gezogen");
-		
-		Console.WriteLine("Ziehe eine Karte:");
-		Console.ReadLine();
-		SpielerKarten[1] = this.KartenDeck.zieheKarte();
-		SpielerPunkte += SpielerKarten[1].Punkte();
+		// TODO implement
 
-		Console.WriteLine("Du hast " + SpielerKarten[1] + " gezogen");
-		
-		Console.WriteLine("Das Casino zieht eine Karte:");
-		Console.ReadLine();
-		DealerKarten[1] = this.KartenDeck.zieheKarte();
-		DealerPunkte += DealerKarten[1].Punkte();
+		// Gib dem Spieler eine Karte
+		// Teile dem Spieler mit, welche Karte er gezogen hat
 
-		Console.WriteLine("Die Karte, die das Casino gezogen hat, bleibt geheim.");
-		
-		string antwort = "";
-		int spielerZähler = 1;
-		int dealerZähler = 1;
-		
-		Console.WriteLine("Du hast folgende Karten: " + String.Join<Karte>(", ", SpielerKarten));
-		Console.WriteLine("Willst du eine weitere Karte ziehen? Ja/Nein?");
-		antwort = Console.ReadLine();
+		// Gib dem Dealer eine Karte
+		// Teile dem Spieler mit, welche Karte er gezogen hat
 
-		bool spielEnde = false;
-		while(antwort.ToLower().Equals("ja") && !spielEnde)
-		{
-			spielerZähler++;
-			SpielerKarten[spielerZähler] = this.KartenDeck.zieheKarte();
-			SpielerPunkte += SpielerKarten[spielerZähler].Punkte();
-		    Console.WriteLine("Du hast " + SpielerKarten[spielerZähler++] + " gezogen");
-			spielEnde = überprüfeSpielEnde();
-			
-			if(DealerPunkte < 17 && !spielEnde){
-				Console.WriteLine("Das Casino zieht eine Karte:");
-		 		Console.ReadLine();
-				dealerZähler++;
-				DealerKarten[dealerZähler] = this.KartenDeck.zieheKarte();
-				DealerPunkte += DealerKarten[dealerZähler].Punkte();
-				Console.WriteLine("Das Casino hat " + DealerKarten[dealerZähler] + " gezogen");
-       			spielEnde = überprüfeSpielEnde();
+		// Gib dem Spieler eine zweite Karte
+		// Teile dem Spieler mit, welche Karte er gezogen hat
 
-			}
-			else
-			{
-				Console.WriteLine("Das Casino zieht keine Karten mehr!");
-			}
+		// Gib dem Dealer eine zweite Karte
+		// Teile dem Spieler *nicht* mit, welche Karte er gezogen hat
+		// Wenn der Dealer das nächste mal an der Reihe ist, teilt er
+		// dem Spieler mit, welche Karte er gezogen hat
 
-            if(!spielEnde)
-            {
-       		    Console.WriteLine("Du hast folgende Karten: " + String.Join<Karte>(", ", SpielerKarten));
-	    	    Console.WriteLine("Willst du eine weitere Karte ziehen? Ja/Nein?");
-		        antwort = Console.ReadLine();
-            }
-		}
-		
-		Console.WriteLine("Das Spiel ist vorbei, doch wer hat gewonnen?");
-		Console.ReadLine();
-		Console.WriteLine("Du hast folgende Karten: " + String.Join<Karte>(", ", SpielerKarten));
-		Console.WriteLine("Das Casino hat folgende Karten: " + String.Join<Karte>(", ", DealerKarten));
+		// Dealer und Spieler sind abwechselnd am Zug
+		// Spieler zieht solange er will
+		// Dealer zieht immer, wenn er weniger als 17 Punkte hat
 
-        if(SpielerPunkte > 21){
-            Console.WriteLine("Du hast mit " + SpielerPunkte + " mehr als 21 Punkte! Du hast verloren");
-            return;
-        }
-        else if(DealerPunkte > 21)
-        {
-            Console.WriteLine("Das Casino hat mit " + DealerPunkte + " mehr als 21 Punkte! Du hast gewonnen!");
-            return;
-        }	
+		// Das Spiel ist vorbei, wenn Spieler oder Dealer > 21 Punkte haben
+		// oder wenn der Spieler keine Karte mehr ziehen will
 
-		if(SpielerPunkte > DealerPunkte)
-		{
-			Console.WriteLine("Du hast mit " + SpielerPunkte + " Punkten gewonnen!");
-			Console.WriteLine("Das Casino hat nur " + DealerPunkte + " Punkte.");
-		}
-		else if(SpielerPunkte == DealerPunkte)
-		{
-			Console.WriteLine("Es ist unentschieden! Beide Parteien haben " + SpielerPunkte + " Punkte! ");
-		}
-		else
-		{
-			Console.WriteLine("Das Casino hat mit " + DealerPunkte + " Punkten gewonnen!");
-			Console.WriteLine("Du hast nur nur " + SpielerPunkte + " Punkte.");
-		}
 	}
 	
+	///
+	/// Gibt true zurück, wenn das Spiel vorbei ist, false ansonsten
+	///
 	bool überprüfeSpielEnde()
 	{
-		if(SpielerPunkte > 21 || DealerPunkte > 21)
-		{
-			return true;
-		}
-        return false;
+		// TODO implement
+		return false;
+	}
+
+	///
+	/// Gibt die Anzahl der Punkte zurück,
+	/// die die übergebenen Karten besitzen
+	///
+	int berechnePunkte(Karte[] karten)
+	{
+		// TODO implement
+		return 0;
 	}
 }
