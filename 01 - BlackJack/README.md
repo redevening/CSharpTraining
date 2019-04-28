@@ -9,21 +9,40 @@ A player plays against the dealer. The goal of the game is to get ones card valu
 ## How the game is played
 
 1. At the beginning the dealer deals the player two cards face up and himself one card face up and the other one face down.
-2. Its the players turn now: The player can decide wheather
-   he wants to get another card. If the player takes another card he has three cards now. If the value of his cards is over 21 the game is over and the player has lost the game.
-3. Now its the dealers turn and the dealer reveals his
-   hidden card. If the card values of the dealer is smaller
-   than 17 the dealer has to take another card. If his card
-   value is now over 21 he has lost the game and the game is over.
+2. Its the players turn now: The player can decide whether he wants to get another card. If the player takes another card he has three cards now. If the value of his cards is over 21 the game is over and the player has lost the game.
+3. Now its the dealers turn and the dealer reveals his hidden card. If the card values of the dealer is smaller  than 17 the dealer has to take another card. If his card value is now over 21 he has lost the game and the game is over.
 4. Now player and dealer take turn taking cards. The player does not need to take a card if i doesn't want to as he fears going above 21. The rules for the dealer are more strict. The dealer has to take a card if his card values are smaller than 17 and is not allowed to take a card otherwise. If the player or the dealer have a card value above 21 they have lost and the game is over.
 5. When the player/dealer do not want more cards anymore the game is over and the points are counted.
 6. The player with the most points has won
 
-### How to implement the exercise
+### Card Points
+Color is irrelevant for card points. Only card values are relevant for blackjack points.
+
+|  Card Value |  BlackJack Points |
+|-------------|-------------------|
+| TWO         | 2                 |
+| THREE       | 3                 |
+| FOUR        | 4                 |
+| FIVE        | 5                 |
+| SIX         | 6                 |
+| SEVEN       | 7                 |
+| EIGHT       | 8                 |
+| NINE        | 9                 |
+| TEN         | 10                |
+| JACK        | 10                |
+| QUEEN       | 10                |
+| KING        | 10                |
+| ACE         | 10 (in the real game this could also be 1 depending what would be better for the player) |
+
+## How to implement the exercise
 In this project you will find a partially implemented solution which you can use. There are also some TODOS that may help you implement the solution.
 
 You don't have to use this suggestions but they may help you.
 
 
-### Options:
-Blackjack can be played with multiple people. We may implement a multi user blackjack in a later exercise.
+## Options:
+- Blackjack can be played with multiple people. We may implement a multi user blackjack in a later exercise.
+- Also for us an Ace always has 10 points. In the real game an ace has 1 or 10 points depending on what would be better for the player.
+
+
+
