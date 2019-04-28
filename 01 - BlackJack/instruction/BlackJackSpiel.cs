@@ -39,6 +39,7 @@ public class BlackJackSpiel
 		// Dealer und Spieler sind abwechselnd am Zug
 		// Spieler zieht solange er will
 		// Dealer zieht immer, wenn er weniger als 17 Punkte hat
+		// Dealer muss solange ziehen bis er mehr als 17 Punkte hat
 
 		// Das Spiel ist vorbei, wenn Spieler oder Dealer > 21 Punkte haben
 		// oder wenn der Spieler keine Karte mehr ziehen will
